@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/tevya-artanto/comp3028-26-finalproject#readme",
   "dependencies": {
+    "dotenv": "^18.0.10",
     "express": "^5.3.0",
     "postgres": "^4.1.0"
   }
