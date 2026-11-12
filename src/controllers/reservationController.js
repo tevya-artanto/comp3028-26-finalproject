@@ -1,7 +1,7 @@
 import sql from '../models/db.js'
 
 // Create new reservation
-exports.createReservation = async (req, res) => {
+const createReservation = async (req, res) => {
     const listingID = Number(req.params.listingID);
     const userID = Number(req.params.userID);
     const nAddress = String(req.params.address);
@@ -33,7 +33,7 @@ exports.createReservation = async (req, res) => {
 };
 
 // Get reservation record
-exports.getReservation = (async (req, res) => {
+const getReservation = (async (req, res) => {
     const listingID = Number(req.params.listingID);
     const userID = Number(req.params.userID);
 
@@ -65,7 +65,7 @@ exports.getReservation = (async (req, res) => {
 });
 
 // Confirm reservation by adding delivery address
-exports.confirmReservation = async (req, res) => {
+const confirmReservation = async (req, res) => {
     const listingID = Number(req.params.listingID);
     const userID = Number(req.params.userID);
 
@@ -90,7 +90,7 @@ exports.confirmReservation = async (req, res) => {
     }
 };
 
-exports.closeReservation = async (req, res) => {
+const closeReservation = async (req, res) => {
     const listingID = Number(req.params.listingID);
     const userID = Number(req.params.userID);
     const date = new Date().toISOString().slice(0, 19).replace('T', ' ');
@@ -115,3 +115,5 @@ exports.closeReservation = async (req, res) => {
         return res.status(500).json({error: 'Could not close reservation'});
     }
 };
+
+export { createReservation, getReservation, confirmReservation, closeReservation }
